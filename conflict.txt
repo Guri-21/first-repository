@@ -1,0 +1,6 @@
+ amazon
+this is the file for conflict 
+my name is gurnoor
+
+this is the file for conflict
+ main
