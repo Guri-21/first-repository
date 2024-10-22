@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+	<html lang = "en">
+		<head>
+			<meta charset = "UTF-8">
+			<meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+			<title> SnipX </title>
+			<link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel = "stylesheet">
+			<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+			<script src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+			<script src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>	
+			<link href = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel = "stylesheet">
+			<link rel = "stylesheet" href = "../css/styles.css">
+			<link rel = "stylesheet" href = "../css/login.css">
+			<link rel = "stylesheet" href = "../css/about.css">
+		</head>
+		<body>
+			<nav class = "navbar navbar-expand-lg navbar-dark">
+				<div class = "container">
+					<a class = "navbar-brand" href = "#">
+						<i class = "bi bi-code-square text-success"></i> SnipX
+					</a>
+					<button class = "navbar-toggler" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navbarNav" aria-controls = "navbarNav" aria-expanded = "false" aria-label = "Toggle navigation">
+						<span class = "navbar-toggler-icon"></span>
+					</button>
+					<div class = "collapse navbar-collapse" id = "navbarNav">
+						<ul class = "navbar-nav ms-auto">
+							<li class = "nav-item">
+								<a class = "nav-link" href = "index.html"> Home </a>
+							</li>
+							<li class = "nav-item">
+								<a class = "nav-link" href = "explore.html"> Explore </a>
+							</li>
+							<li class = "nav-item">
+								<a class = "nav-link" href = "my-snippets.html"> My Snippets </a>
+							</li>
+							<li class = "nav-item">
+								<a class = "nav-link" href = "about.html"> About </a>
+							</li>
+						</ul>
+						<button id = "darkModeToggle" class = "dark-mode-btn">
+							<i class = "fas fa-moon"></i>
+						</button>
+					</div>
+				</div>
+			</nav>
+
+			<canvas id = "particles"></canvas>
+
+			<header class = "header">
+				<h1> Welcome to SnipX </h1>
+				<p> Manage and explore your code snippets effortlessly. </p>
+				<a href = "#loginPopUp"><button class = "Btn-Container"> <span class = "text"> Get Started </span> <span class = "icon-Container"> <svg width = "16" height = "19" viewBox = "0 0 16 19" fill = "nones" xmlns = "http://www.w3.org/2000/svg" > <circle cx = "1.61321" cy = "1.61321" r = "1.5" fill = "black"></circle> <circle cx = "5.73583" cy = "1.61321" r = "1.5" fill = "black"></circle> <circle cx = "5.73583" cy = "5.5566" r = "1.5" fill = "black"></circle> <circle cx = "9.85851" cy = "5.5566" r = "1.5" fill = "black"></circle> <circle cx = "9.85851" cy = "9.5" r = "1.5" fill = "black"></circle> <circle cx = "13.9811" cy = "9.5" r = "1.5" fill = "black"></circle> <circle cx = "5.73583" cy = "13.4434" r = "1.5" fill = "black"></circle> <circle cx = "9.85851" cy = "13.4434" r = "1.5" fill = "black"></circle> <circle cx = "1.61321" cy = "17.3868" r = "1.5" fill = "black"></circle> <circle cx = "5.73583" cy = "17.3868" r = "1.5" fill = "black"></circle> </svg> </span> </button> </a>
+			</header>
+
+			<div id = "loginPopUp">
+				<div class = "login-container">
+					<div class = "forms-container">
+						<a href = "#" class = "close-btn">&times;</a>
+					<div class = "signin-signup">
+						<form action = "#" class = "sign-in-form">
+						<h2 class = "title"> Sign in </h2>
+						<div class = "input-field">
+							<i class = "fas fa-user"></i>
+							<input type = "text" placeholder = "Username" id = "loginUsername" />
+						</div>
+						<div class = "input-field">
+							<i class = "fas fa-lock"></i>
+							<input type = "password" placeholder = "Password"  id = "loginPassword"/>
+						</div>
+						<div class = "remember-me">
+							<input type = "checkbox" id = "rememberMe" />
+							<label for = "rememberMe"> Remember Me </label>
+						</div>
+						<button class = "btn" id = "loginBtn">Login</button>
+						<p class = "social-text"> Or Sign in with social platforms </p>
+						<div class = "social-media">
+							<a href = "#" class = "social-icon">
+								<i class = "fab fa-google"></i>
+							</a>
+							<a href = "#" class = "social-icon">
+								<i class = "fab fa-linkedin-in"></i>
+							</a>
+							<a href = "#" class = "social-icon">
+								<i class = "fab fa-github"></i>
+							</a>
+							<a href = "#" class = "social-icon">
+								<i class = "fab fa-twitter"></i>
+							</a>
+						</div>
+						</form>
+						<form action = "#" class = "sign-up-form">
+						<h2 class = "title"> Sign up </h2>
+						<div class = "input-field">
+							<i class = "fas fa-user"></i>
+							<input type = "text" placeholder = "Username" id = "username" />
+						</div>
+						<div class = "input-field">
+							<i class = "fas fa-envelope"></i>
+							<input type = "email" placeholder = "Email"  id = "email"/>
+						</div>
+						<div class = "input-field">
+							<i class = "fas fa-lock"></i>
+							<input type = "password" placeholder = "Password" id = "password"/>
+						</div>
+						<div class="input-field">
+							<i class="fas fa-lock"></i>
+							<input type="password" placeholder="Confirm Password" id="confirmPassword"/>
+							</div>
+						<button class = "btn" id = "signUpBtn"> Sign Up </button>
+						<p class = "social-text"> Or Sign up with social platforms </p>
+						<div class = "social-media">
+							<a href = "#" class = "social-icon">
+							<i class = "fab fa-google"></i>
+							</a>
+							<a href = "#" class = "social-icon">
+							<i class = "fab fa-linkedin-in"></i>
+							</a>
+							<a href = "#" class = "social-icon">
+							<i class = "fab fa-github"></i>
+							</a>
+							<a href = "#" class = "social-icon">
+							<i class = "fab fa-twitter"></i>
+							</a>
+						</div>
+						</form>
+					</div>
+					</div>
+
+					<div class = "panels-container">
+					<div class = "panel left-panel">
+						<div class = "content">
+						<h3> New here ? </h3>
+						<p>
+							New here? Click the button below to sign up and create your account!
+						</p>
+						<button class = "btn transparent" id = "sign-up-btn">
+							Sign up
+						</button>
+						</div>
+						<img src = "img/log.svg" class = "image" alt = "" />
+					</div>
+					<div class = "panel right-panel">
+						<div class = "content">
+						<h3> One of us ? </h3>
+						<p>
+							If you're already registered, click here to log in and continue where you left off.
+						</p>
+						<button class = "btn transparent" id = "sign-in-btn">
+							Sign in
+						</button>
+						</div>
+						<img src = "img/register.svg" class = "image" alt = "" />
+					</div>
+					</div>
+				</div>
+			</div>
+
+			<main>
+				<section id = "features" class = "py-5">
+					<div class = "container">
+						<h2 class = "text-center mb-4"> Features </h2>
+						<div class = "row">
+							<div class = "col-md-4 mb-4">
+								<div class = "card h-100">
+									<div class = "card-body">
+										<h5 class = "card-title"> Easy Snippet Management </h5>
+										<p class = "card-text text-white"> Organize and manage your code snippets effortlessly. </p>
+									</div>
+								</div>
+							</div>
+							<div class = "col-md-4 mb-4">
+								<div class = "card h-100">
+									<div class = "card-body">
+										<h5 class = "card-title"> Syntax Highlighting</h5>
+										<p class = "card-text text-white"> View your code with beautiful syntax highlighting. </p>
+									</div>
+								</div>
+							</div>
+							<div class = "col-md-4 mb-4">
+								<div class = "card h-100">
+									<div class = "card-body">
+										<h5 class = "card-title"> Share and Collaborate </h5>
+										<p class = "card-text text-white"> Share your snippets and collaborate with others. </p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class = "newsletter">
+					<div class = "container">
+						<h2> Subscribe to Our Newsletter </h2>
+						<p> Stay updated with the latest news and features of SnipX by subscribing to our newsletter. </p>
+						<form action = "#" method = "POST" class = "newsletter-form">
+							<input type = "email" placeholder = "Enter your email" required>
+							<button type = "submit" class = "Btn-Container"> Subscribe </button>
+						</form>
+					</div>
+					</section>
+				
+					<div class = "faq-section" id = "faq">
+					<h2 class = "faq-title"> Frequently Asked Questions </h2>
+					<div class = "faq-container">
+						<div class = "faq-item">
+							<button class = "faq-question">
+								What is SnipX?
+								<span class = "faq-icon">+</span>
+							</button>
+							<div class = "faq-answer">
+								<p> SnipX is a code snippet manager that allows users to manage and explore code snippets efficiently. </p>
+							</div>
+						</div>
+						<div class = "faq-item">
+							<button class = "faq-question">
+								How can I sign up for SnipX?
+								<span class = "faq-icon">+</span>
+							</button>
+							<div class = "faq-answer">
+								<p> To sign up, click on the 'Get Started' button on the homepage, which will redirect you to the registration page. </p>
+							</div>
+						</div>
+						<div class = "faq-item">
+							<button class = "faq-question">
+								Is there a cost to use SnipX?
+								<span class = "faq-icon">+</span>
+							</button>
+							<div class = "faq-answer">
+								<p>SnipX is free to use for individual users. Premium plans are available for teams with additional features. </p>
+							</div>
+						</div>
+						<div class = "faq-item">
+							<button class = "faq-question">
+								Can I explore other users' snippets?
+								<span class = "faq-icon">+</span>
+							</button>
+							<div class = "faq-answer">
+								<p> Yes, the 'Explore' section allows you to browse through snippets shared by other users. </p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+
+			<footer class = "bg-dark text-light py-4">
+				<div class = "container">
+					<div class = "row">
+						<div class = "col-md-4">
+							<h5> SnipX </h5>
+						<p> Your go-to platform for managing code snippets. </p>
+						</div>
+						<div class = "col-md-4">
+							<h5> Quick Links </h5>
+							<ul class = "list-unstyled">
+								<li> <a href = "index.html"> Home </a> </li>
+								<li> <a href = "explore.html"> Explore </a> </li>
+								<li> <a href = "snippet.html"> My Snippets </a> </li>
+								<li> <a href = "about.html"> About Us </a> </li>
+								<li> <a href = "login.html"> Login </a> </li>
+							</ul>
+						</div>
+						<div class = "col-md-4">
+							<h5> Connect </h5>
+							<div class = "social-icons">
+								<a href = "#"> <i class = "fab fa-twitter"> </i> </a>
+								<a href = "#"> <i class = "fab fa-github"> </i> </a>
+								<a href = "#"> <i class = "fab fa-linkedin"> </i> </a>
+							</div>
+						</div>
+					</div>
+					<hr>
+					<div class = "row">
+						<div class = "col-md-6">
+							<p> &copy; 2024 SnipX. All rights reserved. </p>
+						</div>
+						<div class = "col-md-6 text-md-end">
+							<a href = "#"> Privacy Policy </a> | <a href = "#"> Terms of Service </a>
+						</div>
+					</div>
+				</div>
+<<<<<<< Updated upstream
+			</footer>
+=======
+				<div class="input-field">
+					<i class="fas fa-lock"></i>
+					<input type="password" placeholder="Confirm Password" id="confirmPassword"/>
+					</div>
+				<button class="btn" id="signUpBtn">Sign Up</button>
+				<p class="social-text">Or Sign up with social platforms</p>
+				<div class="social-media">
+					<a href="#" class="social-icon">
+					<i class="fab fa-google"></i>
+					</a>
+					<a href="#" class="social-icon">
+					<i class="fab fa-linkedin-in"></i>
+					</a>
+					<a href="#" class="social-icon">
+					<i class="fab fa-github"></i>
+					</a>
+					<a href="#" class="social-icon">
+					<i class="fab fa-twitter"></i>
+					</a>
+				</div>
+				</form>
+			</div>
+			</div>
+>>>>>>> Stashed changes
+
+			<script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+			<script src = "../js/main.js"></script>
+			<script src = "../js/gsap.js"></script>
+			<script src = "../js/login.js"></script>
+			<script src = "../js/faq.js"></script>
+		</body>
+	</html>
